@@ -20,7 +20,7 @@ parameters:
 
 steps:
   - ${{ if ne(variables['Agent.OS'], 'Windows_NT') }}:
-    - script: PATH=$(Build.SourcesDirectory)/.dotnet:$PATH
+    - script: export PATH=$(Build.SourcesDirectory)/.dotnet:$PATH
       displayName: Add dotnet to PATH
   - ${{ if eq(variables['Agent.OS'], 'Windows_NT') }}:
     - script: set PATH=$(Build.SourcesDirectory)\.dotnet;%PATH%
